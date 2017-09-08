@@ -4,6 +4,7 @@
     Author     : Mike
 --%>
 
+<%@page import="java.util.Calendar"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -15,10 +16,28 @@
     <body>
         <h1>Months</h1>
         <c:forTokens items="Jan,Feb,Mar,Jun,Jul,Aug,Sept,Oct,Nov,Dec" delims="," var="month">
-            <b><c:out value="${month}"/></b><p> 
+            <b><c:out value="${month}"/></b><br>
             <c:forEach var ="a" begin="1" end="30">
-                <c:out value="${a}"/><p>
-            </c:forEach> 
+                <c:out value="${a}"/>
+            </c:forEach> <br>
         </c:forTokens>
+
+
+
+        <%
+            Calendar date;
+            date = Calendar.getInstance();
+            date.getFirstDayOfWeek();
+
+        %>
+        <h2>Is it the first day of the week?</h2>
+        <c:set var="dayOfWeek" value="{<%date%>}"/>
+        <c:if test = "${dayOfWeek != 1}">
+            <c:out value="It is not the first day of the week."/>
+        </c:if>
+        <c:if test="${dayOfWeek ==1}">
+            <c:out value="It is the first day of the week."/>
+        </c:if>
+
     </body>
 </html>

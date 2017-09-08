@@ -27,12 +27,12 @@
         <%
             Calendar date;
             date = Calendar.getInstance();
-            date.getFirstDayOfWeek();
+            date.getDayOfWeek();
 
         %>
         <h2>Is it the first day of the week?</h2>
         <c:set var="dayOfWeek" value="{<%date%>}"/>
-        <c:if test = "${dayOfWeek != 1}">
+        <c:if test = "${dayOfWeek != SUNDAY}">
             <c:out value="It is not the first day of the week."/>
         </c:if>
         <c:if test="${dayOfWeek ==1}">
@@ -48,7 +48,7 @@
         %>
         
         <c:set var = "string1" value="<%TAKE THis seNTEnce ANd MaKe It aLL LOWER.%>"/>
-        <c:set var= "string2" value="${fn:toLowerCase(string1)}" />
+        <c:set var= "string2" value="${fn:toLowerCase(string1)}"/>
         
     </body>
 </html>

@@ -39,5 +39,16 @@
             <c:out value="It is the first day of the week."/>
         </c:if>
 
+        
+        
+        <h3>TAKE THis seNTEnce ANd MaKe It aLL LOWER.</h3>
+        
+        <% 
+            String string = "TAKE THis seNTEnce ANd MaKe It aLL LOWER.";
+        %>
+        
+        <c:set var = "string1" value="<%TAKE THis seNTEnce ANd MaKe It aLL LOWER.%>"/>
+        <c:set var= "string2" value="${fn:toLowerCase(string1)}" />
+        
     </body>
 </html>
